@@ -3,6 +3,7 @@ const mysql = require('mysql2');
 const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
+const { message } = require('statuses');
 
 const app = express();
 app.use(express.json());
@@ -27,6 +28,10 @@ con.connect((err) => {
 });
 
 // Endpoint to handle user registration
+app.post('/', (req, res) => {
+    console.log("hii new user")
+    res.json({message:"helloworldvercel"})
+});
 app.post('/register', (req, res) => {
     const { username, email, usermobile, password } = req.body;
 
